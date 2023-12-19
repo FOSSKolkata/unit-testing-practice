@@ -3,7 +3,7 @@ using UnitTestingPractice.Module2.EasyToTest;
 using UnitTestingPractice.Module2.EasyToTest.Interfaces;
 using UnitTestingPractice.Module2.EasyToTest.Implementations;
 
-namespace UnitTestingPractice.EasyToTest
+namespace UnitTestingPractice.Module2.Tests
 {
 
     public class PrintInvoiceCommandTests
@@ -41,36 +41,39 @@ namespace UnitTestingPractice.EasyToTest
                 _mockDateTime.Object,
                 _mockPrinter.Object);
 
-            
+
         }
 
         [Fact]
         public void Execute_ShouldPrintInvoiceNumber()
         {
             _command.Execute(InvoiceId);
-            
+
             _mockPrinter
                  .Verify(p => p.WriteLine("Invoice ID: 1"),
                     Times.Once);
-             
+
         }
 
         [Fact]
-        public void Execute_ShouldPrintTotalPrice() {
+        public void Execute_ShouldPrintTotalPrice()
+        {
             _command.Execute(InvoiceId);
 
             _mockPrinter
-                 .Verify(p => p.WriteLine("Total: $1.23"), 
+                 .Verify(p => p.WriteLine("Total: $1.23"),
                     Times.Once);
         }
 
         [Fact]
-        public void Execute_ShouldPrintTotalAmount() {  
-            _command.Execute(InvoiceId);  
-            
+        public void Execute_ShouldPrintTotalAmount()
+        {
+            _command.Execute(InvoiceId);
+
             _mockPrinter
                 .Verify(p => p.WriteLine($"Printed: {Date.ToShortDateString()}"),
                     Times.Once);
         }
+
     }
 }

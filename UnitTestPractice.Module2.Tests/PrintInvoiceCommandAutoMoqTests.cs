@@ -4,7 +4,7 @@ using UnitTestingPractice.Module2.EasyToTest.Interfaces;
 using UnitTestingPractice.Module2.EasyToTest.Implementations;
 using AutoMoq;
 
-namespace UnitTestingPractice.EasyToTest
+namespace UnitTestingPractice.Module2.Tests
 {
 
     public class PrintInvoiceCommandAutoMoqTests : IClassFixture<PrintInvoiceCommandAutoMoqTests>
@@ -50,7 +50,7 @@ namespace UnitTestingPractice.EasyToTest
             _mocker.GetMock<IPrinter>()
                  .Verify(p => p.WriteLine(line),
                     Times.Once);
-         
+
         }
     }
 }
