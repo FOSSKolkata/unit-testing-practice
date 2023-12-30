@@ -4,7 +4,6 @@
     {
         static void Main(string[] args)
         {
-           
             int invoiceId = Int32.Parse(Console.ReadLine());
             
             StartUp1.Start(invoiceId);
